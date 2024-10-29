@@ -29,13 +29,15 @@ fn main() {
 
     let elapsed = start_time.elapsed();
     println!("{:?}", result[42]);
-    println!("libnoise {:?}", elapsed);
+    println!("libnoise time: {:?}", elapsed);
 
+    let start_minmax = Instant::now();
     let (min, max) = result.argminmax();  // apply extension
 
+    let elapsed_minmax = start_minmax.elapsed();
     println!("min: {}, max: {}", min, max);
     println!("result[min]: {}, result[max]: {}", result[min], result[max]);
-
+    println!("minmax time: {:?}", elapsed_minmax);
     // TODO: Add other noise library examples for comparison
 }
 
