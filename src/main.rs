@@ -1,5 +1,6 @@
 use libnoise::*;
 use std::time::Instant;
+use argminmax::ArgMinMax;
 
 fn main() {
     // res 512 (+ border 3) = 268_324 points
@@ -8,7 +9,7 @@ fn main() {
     let mut vec_of_vec3s: Vec<Vec<f64>> = vec![];
 
     for _i in 0..4218916 {
-        vec_of_vec3s.push(vec![1.1, 2.2, 3.3]);
+        vec_of_vec3s.push(vec![1.1 + _i as f64, 2.2, 3.3]);
     }
 
     let start_time = Instant::now();
@@ -29,6 +30,11 @@ fn main() {
     let elapsed = start_time.elapsed();
     println!("{:?}", result[42]);
     println!("libnoise {:?}", elapsed);
+
+    let (min, max) = result.argminmax();  // apply extension
+
+    println!("min: {}, max: {}", min, max);
+    println!("result[min]: {}, result[max]: {}", result[min], result[max]);
 
     // TODO: Add other noise library examples for comparison
 }
