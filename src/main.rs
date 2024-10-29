@@ -7,7 +7,7 @@ fn main() {
     // res 2048 (+ border 3) = 4_218_916 points
     let mut vec_of_vec3s: Vec<Vec<f64>> = vec![];
 
-    for _i in 0..4218915 {
+    for _i in 0..4218916 {
         vec_of_vec3s.push(vec![1.1, 2.2, 3.3]);
     }
 
